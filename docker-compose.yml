@@ -1,0 +1,20 @@
+version: '3'
+services:
+  app:
+    container_name: podcast-radio-api
+    restart: always
+    build: .
+    ports:
+      - '6969:6969'
+    links:
+      - mongo
+    volumes: ['./:/usr/src/app']
+  mongo:
+    container_name: podcast-radio-mongo
+    image: mongo
+    volumes:
+      - mongodb:/data/db
+    ports:
+      - '27018:27018'
+volumes:
+  mongodb:

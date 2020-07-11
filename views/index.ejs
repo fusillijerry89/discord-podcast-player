@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Node App</title>
+</head>
+
+<body>
+  <h1>My Node App</h1>
+  <form method="post" action="/bookmark/add">
+    <label for="url">URL</label>
+    <input type="text" name="url">
+    <label for="tags">Tags</label>
+    <input type="text" name="tags">
+    <input type="submit" value="Add">
+  </form>
+  <h4>Bookmarks:</h4>
+  <ul>
+    <% bookmarks.forEach(function(bookmark) { %>
+      <li>
+        <%= bookmark.url %>
+        <%= bookmark.tags.forEach(function(tag) {
+          <%= tag %>
+        }) %>
+      </li>
+      <% }); %>
+  </ul>
+</body>
+
+</html>
